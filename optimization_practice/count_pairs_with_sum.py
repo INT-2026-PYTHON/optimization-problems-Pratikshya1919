@@ -116,8 +116,6 @@ def count_pairs_fast(numbers, target):
         frequency[value] = frequency.get(value, 0) + 1
 
     return total_pairs
-
-
 # User Input
 numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
 target = int(input("Enter target sum: "))
