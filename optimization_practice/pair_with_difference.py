@@ -79,3 +79,35 @@ overall O(n) algorithm.
 =================================================
 
 """
+def has_pair_brute(nums, k):
+    size = len(nums)
+
+    for left in range(size):
+        for right in range(left + 1, size):
+            if abs(nums[left] - nums[right]) == k:
+                return True
+
+    return False
+
+
+def has_pair_fast(nums, k):
+    numbers_set = set(nums)
+
+    for num in nums:
+        if (num + k) in numbers_set or (num - k) in numbers_set:
+            return True
+
+    return False
+
+
+# User Input
+nums = list(map(int, input("Enter numbers: ").split()))
+k = int(input("Enter k: "))
+
+# Call both functions
+brute_ans = has_pair_brute(nums, k)
+fast_ans = has_pair_fast(nums, k)
+
+# Print results
+print("Brute Force:", brute_ans)
+print("Optimized:  ", fast_ans)
